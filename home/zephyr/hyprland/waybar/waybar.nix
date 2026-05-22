@@ -1,8 +1,12 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   home.packages = with pkgs; [
     pavucontrol
     networkmanagerapplet
   ];
+
+  # 由于全局启用了 catppuccin 模块，它会尝试接管 waybar 样式
+  # 如果我们要使用自定义的 style.css，需要显式禁用 catppuccin 的 waybar 部分
+  catppuccin.waybar.enable = false;
 
   programs.waybar = {
     enable = true;

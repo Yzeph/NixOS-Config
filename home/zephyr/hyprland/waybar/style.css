@@ -1,20 +1,12 @@
-/* ===== 高级质感配色方案（莫兰迪色系 + 磨砂玻璃效果）===== */
-@define-color bg-primary rgba(30, 32, 40, 0.85);
-/* 主背景：深灰半透明 */
-@define-color bg-secondary rgba(46, 52, 64, 0.7);
-/* 次级背景 */
-@define-color accent-primary #8FBCBB;
-/* 主色：冰川蓝 */
-@define-color accent-secondary #D08770;
-/* 次色：陶土粉 */
-@define-color text-primary #E5E9F0;
-/* 主文本 */
-@define-color text-dim #81A1C1;
-/* 弱化文本 */
-@define-color border-glass rgba(136, 192, 208, 0.2);
-/* 玻璃边框 */
-@define-color urgent #BF616A;
-/* 警告色 */
+/* ===== Catppuccin Mocha 配色方案 ===== */
+@define-color bg-primary rgba(30, 30, 46, 0.85);    /* Base: #1e1e2e */
+@define-color bg-secondary rgba(24, 24, 37, 0.7);   /* Mantle: #181825 */
+@define-color accent-primary #cba6f7;               /* Mauve: 强调色 */
+@define-color accent-secondary #89b4fa;             /* Blue: 次级强调色 */
+@define-color text-primary #cdd6f4;                 /* Text: 主文本 */
+@define-color text-dim #a6adc8;                     /* Subtext0: 弱化文本 */
+@define-color border-glass rgba(203, 166, 247, 0.2); /* Mauve 半透明边框 */
+@define-color urgent #f38ba8;                       /* Red: 警告色 */
 
 /* ===== 全局基础设置 ===== */
 * {
