@@ -148,7 +148,6 @@
     dejavu_fonts
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
-    maple-mono-NF
   ];
 
   fonts = {
