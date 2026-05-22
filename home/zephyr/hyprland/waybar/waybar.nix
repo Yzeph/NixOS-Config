@@ -6,6 +6,7 @@
 
   programs.waybar = {
     enable = true;
+    style = ./style.css;
     settings = {
       mainBar = {
         layer = "top";
@@ -149,8 +150,6 @@
       };
     };
   };
-
-  home.file.".config/waybar/style.css".source = ./style.css;
 
   # 声明脚本文件
   home.file.".config/waybar/scripts/toggle-power-profile.sh" = {

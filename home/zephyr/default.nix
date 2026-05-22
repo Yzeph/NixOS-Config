@@ -34,16 +34,14 @@
     accent = "mauve";  # 强调色
   };
 
-  # 启用 GTK 与 Qt 的 Catppuccin 主题
-  gtk = {
-    enable = true;
-    catppuccin.enable = true;
-  };
+  # 启用 GTK 与 Qt 的组件支持
+  gtk.enable = true;
   qt = {
     enable = true;
     platformTheme.name = "kvantum";
     style.name = "kvantum";
   };
+  # Catppuccin 模块会自动处理相应的配色
   catppuccin.kvantum.enable = true;
 
   # 消息通知
