@@ -55,14 +55,21 @@
   #   flavor = "mocha";
   # };
 
+  # 设置默认浏览器环境变量为 Edge
+  home.sessionVariables = {
+    BROWSER = "microsoft-edge";
+  };
+
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = {
     "image/png" = ["imv.desktop"];
     "image/jpeg" = ["imv.desktop"];
     "image/gif" = ["imv.desktop"];
-    "text/html" = "google-chrome.desktop";
-    "x-scheme-handler/http" = "google-chrome.desktop";
-    "x-scheme-handler/https" = "google-chrome.desktop";
+    "text/html" = ["microsoft-edge.desktop"];
+    "x-scheme-handler/http" = ["microsoft-edge.desktop"];
+    "x-scheme-handler/https" = ["microsoft-edge.desktop"];
+    "x-scheme-handler/about" = ["microsoft-edge.desktop"];
+    "x-scheme-handler/unknown" = ["microsoft-edge.desktop"];
     "x-scheme-handler/clash" = "clash-verge.desktop";
   };
 

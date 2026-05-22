@@ -58,7 +58,6 @@
   programs.steam.enable = true;
   programs.steam.fontPackages = with pkgs; [source-han-sans];
   programs.zsh.enable = true;
-  programs.firefox.enable = true;
 
   # 用户配置
   users.users.zephyr = {
