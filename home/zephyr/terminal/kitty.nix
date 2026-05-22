@@ -2,7 +2,7 @@ _: {
   programs.kitty = {
     enable = true;
     font = {
-      name = "Maple Mono NF CN";
+      name = "JetBrainsMono Nerd Font";
       size = 14;
     };
     catppuccin.enable = true;
