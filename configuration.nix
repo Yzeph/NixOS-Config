@@ -73,6 +73,9 @@
   programs.steam.fontPackages = with pkgs; [source-han-sans];
   programs.zsh.enable = true;
 
+  # 启用 Flatpak
+  services.flatpak.enable = true;
+
   # 用户配置
   users.users.zephyr = {
     description = "Zephyr";

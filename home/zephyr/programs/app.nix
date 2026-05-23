@@ -7,7 +7,7 @@
     obsidian
     youtube-music
     spotify
-    microsoft-edge
+    # microsoft-edge
     jetbrains.idea-ultimate
     maven
     jdk
