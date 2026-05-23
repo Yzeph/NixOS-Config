@@ -7,20 +7,20 @@
   ];
 
   # 1. 赋予核心二进制文件网络管理权限（用于 TUN 模式）
-  security.wrappers.clash-nyanpasu = {
+  security.wrappers.clash-verge-rev = {
     owner = "root";
     group = "root";
     capabilities = "cap_net_admin,cap_net_bind_service+ep";
-    source = "${pkgs-unstable.clash-nyanpasu}/bin/clash-nyanpasu";
+    source = "${pkgs.clash-verge-rev}/bin/clash-verge-rev";
   };
 
   # 2. 启用后端服务（用于“系统代理”开关和“Service Mode”）
-  systemd.services.clash-nyanpasu = {
-    description = "Clash Nyanpasu Backend Service";
+  systemd.services.clash-verge-rev = {
+    description = "Clash Verge Rev Backend Service";
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs-unstable.clash-nyanpasu}/bin/clash-nyanpasu-service";
+      ExecStart = "${pkgs.clash-verge-rev}/bin/clash-verge-rev";
       Restart = "always";
     };
   };
