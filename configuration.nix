@@ -59,15 +59,6 @@
     XMODIFIERS = "@im=fcitx";
   };
 
-  # Agenix 密钥管理 (使用 SSH 密钥解密)
-  age.identityPaths = [
-    "/home/zephyr/.ssh/id_ed25519"
-  ];
-  age.secrets."ai_api_key" = {
-    file = ./secrets/ai_api_key.age;
-    owner = "zephyr";
-  };
-
   # 常用程序设置
   programs.steam.enable = true;
   programs.steam.fontPackages = with pkgs; [source-han-sans];
@@ -265,39 +256,4 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  #### systemd 用户环境加载器 (env-loader) ####
-  # 作用：将 Agenix 解密后的敏感变量（如 API Keys）注入到图形界面会话和 Systemd 环境中。
-  # 这样 Rofi、Hyprland 脚本以及所有 GUI 应用都能直接读取这些环境变量。
- # systemd.user.services.env-loader = {
- #   description = "将 Agenix 的 API 密钥加载到图形会话环境变量中";
- #   wantedBy = ["graphical-session-pre.target"]; # 在图形界面启动前准备好
- #   before = ["graphical-session.target"];      # 确保在进入桌面环境前完成
-
- #   serviceConfig = {
- #     Type = "oneshot";
- #     RemainAfterExit = true;
- #     ExecStart = pkgs.writeShellScript "env-loader" ''
- #         SECRET_FILE="${config.age.secrets.ai_api_key.path}"
- #         if [ -f "$SECRET_FILE" ]; then
-          # 1. 临时开启自动导出功能 (set -a)，并 source 加密文件，读入变量
- #         set -a
- #         . "$SECRET_FILE"
- #         set +a
-
-          # 2. 使用正则提取文件中的变量名 (匹配等号左边的字符)
- #         VARS=$(grep -oP '^[a-zA-Z_][a-zA-Z0-9_]*(?==)' "$SECRET_FILE")
-
-           # 3. 将变量注入 D-Bus 激活环境 (解决 Rofi/GUI 应用无法识别环境变量的问题)
- #         ${pkgs.dbus}/bin/dbus-update-activation-environment --systemd $VARS
-
-          # 4. 同步到 systemd 用户级环境变量中，供后台服务使用
- #         for var in $VARS; do
- #           val=$(eval echo \$$var)
- #           ${pkgs.systemd}/bin/systemctl --user set-environment "$var"="$val"
- #         done
- #       fi
- #     '';
- #   };
- # };
 }

@@ -14,8 +14,6 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    agenix.url = "github:ryantm/agenix";
-
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -41,7 +39,6 @@
     nixpkgs-unstable,
     home-manager,
     CookNixvim,
-    agenix,
     catppuccin,
     noctalia,
     ...
@@ -63,12 +60,8 @@
 
         modules = [
           ./configuration.nix
-          agenix.nixosModules.default
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
-          {
-            environment.systemPackages = [agenix.packages.${system}.default];
-          }
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -76,7 +69,6 @@
             home-manager.users.zephyr = {
               imports = [
                 catppuccin.homeModules.catppuccin
-                agenix.homeManagerModules.default
                 noctalia.homeModules.default
                 ./home/zephyr
               ];

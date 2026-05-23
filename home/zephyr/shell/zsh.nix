@@ -77,18 +77,6 @@
       [ -f ~/.zsh_secrets ] && source ~/.zsh_secrets
       [ -f ~/.zsh_local ] && source ~/.zsh_local
       
-      # 智能加载 Agenix 密钥
-      if [ -f /run/agenix/ai_api_key ]; then
-        # 尝试以 export 模式 source (处理 KEY=VAL 格式)
-        set -a
-        . /run/agenix/ai_api_key
-        set +a
-        # 如果 source 失败且文件不为空，则直接 cat 给 AI_API_KEY (处理纯文本格式)
-        if [ -z "$AI_API_KEY" ]; then
-           export AI_API_KEY=$(cat /run/agenix/ai_api_key)
-        fi
-      fi
-
       # 4. 其它细节设置
       bindkey '^[[A' up-line-or-search   # 方向键上：搜索历史
       bindkey '^[[B' down-line-or-search # 方向键下：搜索历史
