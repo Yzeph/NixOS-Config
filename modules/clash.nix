@@ -25,7 +25,7 @@
   };
 
   # 3. 必要的系统内核配置
-  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
+  # 注：net.ipv4.ip_forward 已在 configuration.nix 中定义，此处不再重复以避免冲突
   boot.kernelModules = [ "tun" ];
 
   # 4. 辅助 GSettings 代理设置
