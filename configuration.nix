@@ -71,15 +71,6 @@
   programs.zsh.enable = true;
   programs.dconf.enable = true;
 
-  # [优化] 授予 Clash Verge TUN 模式所需的权限
-  security.polkit.enable = true;
-  security.wrappers.clash-verge = {
-    owner = "root";
-    group = "root";
-    capabilities = "cap_net_admin,cap_net_bind_service+ep";
-    source = "${pkgs.clash-verge-rev}/bin/clash-verge";
-  };
-
   # 启用 Flatpak
   services.flatpak.enable = true;
 
