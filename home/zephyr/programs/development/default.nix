@@ -2,7 +2,6 @@
   imports = [
     ./direnv.nix
     ./vscode.nix
-    ./zed.nix
     ./neovide.nix
     ./tmux.nix
     ./lazygit.nix

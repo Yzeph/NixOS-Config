@@ -1,13 +1,13 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    wechat
+    # wechat (下载超时，由于 web.archive.org 连接不稳定)
     qq
     vlc
     obsidian
     youtube-music
     spotify
     # microsoft-edge
-    jetbrains.idea-ultimate
+    jetbrains.idea
     maven
     jdk
     # C/C++ 环境

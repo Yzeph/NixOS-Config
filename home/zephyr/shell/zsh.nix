@@ -63,7 +63,7 @@
     };
 
     # 脚本初始化
-    initExtra = ''
+    initContent = ''
       # 1. 优先加载 Powerlevel10k 瞬时提示以提高启动速度
       if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
         source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
