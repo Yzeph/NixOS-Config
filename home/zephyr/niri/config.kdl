@@ -1,15 +1,18 @@
 // "/-" comments out the following node.
-prefer-no-csd //移除终端等应用的标题栏
+prefer-no-csd 
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "fcitx5"
+spawn-at-startup "xwayland-satellite"
 // spawn-at-startup "noctalia-shell"
 spawn-sh-at-startup "sh -c 'wayvnc 0.0.0.0'"
 
 environment {  
     LANG "zh_CN.UTF-8"  
-    LC_ALL "zh_CN.UTF-8"
-    // LC_MESSAGES "en_US.UTF-8"  
+    // LC_ALL "zh_CN.UTF-8"
+    DISPLAY ":0"
+    // AMD 显卡通常不需要此变量，除非遇到光标闪烁
+    // WLR_NO_HARDWARE_CURSORS "1"
 }
 
 input {
@@ -50,12 +53,15 @@ input {
     }
 }
 
+// 建议：初次配置时使用通用配置。如果需要特定配置，请运行 `niri msg outputs` 确认名称。
+/*
 output "HDMI-A-3" {
     mode "1920x1080@120.030"
     scale 1.6
     transform "normal"
     position x=1280 y=0
 }
+*/
 
 layout {
     gaps 5
@@ -159,7 +165,7 @@ animations {
 
 window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
+    // default-column-width {}
 }
 
 window-rule {

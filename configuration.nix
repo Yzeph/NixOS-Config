@@ -34,7 +34,7 @@
     wineWow64Packages.stable
     winetricks
     # google-chrome (已在 home-manager 中配置)
-    pulseaudio
+    # pulseaudio (已禁用，改用 pipewire-pulse)
     pciutils # lspci
     ffmpeg
     libva
@@ -53,6 +53,7 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # 强制 Electron 运行在 Wayland
     TERMINAL = "kitty";   # 默认终端
+    WLR_NO_HARDWARE_CURSORS = "1"; # 修复部分硬件下光标不可见或闪退
     # GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";
     QT5_IM_MODULE = "fcitx";
@@ -86,6 +87,7 @@
   
   # 内核参数与内核版本
   # 包含针对华硕 B760-G 声卡和低功耗 CPU 的修复
+  boot.initrd.kernelModules = [ "amdgpu" ]; # 针对 AMD 显卡提前加载驱动
   boot.kernelParams = [ 
     "ahci.mobile_lpm_policy=1"
     "snd_hda_intel.model=alc1220_vb"
@@ -224,6 +226,10 @@
   hardware = {
     enableAllFirmware = true;         # 自动安装所有固件
     cpu.intel.updateMicrocode = true; # Intel CPU 微码更新
+    graphics = {                      # 显卡驱动配置
+      enable = true;
+      enable32Bit = true;
+    };
   };
 
   # 显卡驱动与硬件加速 (Intel)
