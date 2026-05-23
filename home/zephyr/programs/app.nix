@@ -25,12 +25,12 @@
     enable = true;
     package = pkgs.google-chrome;
     commandLineArgs = [
-      "--force-dark-mode"
       "--enable-features=UseOzonePlatform"
-      "--ozone-platform=wayland"
-      "--force-device-scale-factor=1"
+      "--ozone-platform-hint=auto"
+      "--force-dark-mode"
       "--enable-gpu-rasterization"
       "--enable-zero-copy"
+      "--ignore-gpu-blocklist"
     ];
     extensions = [
       "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite

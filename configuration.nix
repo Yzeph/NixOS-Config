@@ -47,6 +47,8 @@
     bluez
     cachix
     alsa-utils
+    sof-firmware # 许多现代主板（如 B760）音频所需的固件
+    pavucontrol  # 图形化音频控制面板，建议用来检查是否被静音
   ];
 
   # 会话环境变量
@@ -238,13 +240,6 @@
       # AMD 显卡通常不需要像 Intel 那样指定额外的英特尔驱动包
     };
   };
-
-  # 补充音频相关固件
-  environment.systemPackages = with pkgs; [
-    sof-firmware # 许多现代主板（如 B760）音频所需的固件
-    alsa-utils
-    pavucontrol  # 图形化音频控制面板，建议用来检查是否被静音
-  ];
 
   # NixOS 状态版本 (请勿随意修改)
   system.stateVersion = "25.05";
