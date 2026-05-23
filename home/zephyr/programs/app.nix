@@ -15,6 +15,7 @@
     cmake
     gdb
     kdePackages.dolphin
+    kdePackages.kirigami-addons
     kdePackages.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugin-kvantum
   ];
