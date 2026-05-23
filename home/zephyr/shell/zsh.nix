@@ -42,6 +42,10 @@
       ff = "fastfetch";
       lg = "lazygit";
       
+      # 代理手动开关
+      proxy = "export http_proxy=http://127.0.0.1:7897 https_proxy=http://127.0.0.1:7897 all_proxy=socks5://127.0.0.1:7897";
+      unproxy = "unset http_proxy https_proxy all_proxy";
+
       # NixOS 维护命令
       nrs = "sudo nixos-rebuild switch --flake .#zephyr";
       nlg = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
