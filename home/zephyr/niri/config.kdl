@@ -7,6 +7,7 @@ xwayland {
     // disable true
 }
 
+spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "fcitx5"
@@ -16,7 +17,11 @@ spawn-sh-at-startup "sh -c 'wayvnc 0.0.0.0'"
 
 environment {  
     LANG "zh_CN.UTF-8"  
-    // 移除手动 DISPLAY 设置，避免与 XWayland 冲突
+    XDG_CURRENT_DESKTOP "niri"
+    XDG_SESSION_TYPE "wayland"
+    XDG_SESSION_DESKTOP "niri"
+    QT_QPA_PLATFORM "wayland;xcb"
+    GDK_BACKEND "wayland,x11,*"
 }
 
 input {
@@ -213,7 +218,7 @@ binds {
     Mod+Return hotkey-overlay-title="打开终端: alacritty" { spawn "alacritty"; }
     Mod+Shift+Return hotkey-overlay-title="打开终端(浮动): alacritty" { spawn "alacritty" "--class" "floating_terminal"; }
     Mod+D hotkey-overlay-title="打开应用启动器: fuzzel" { spawn "fuzzel"; }
-    Mod+Shift+W hotkey-overlay-title="切换壁纸: swww" { spawn "~/.config/wallpaper/script/swww-rofi.sh"; }
+    Mod+Shift+W hotkey-overlay-title="切换壁纸: swww" { spawn "sh" "-c" "~/.config/wallpaper/swww-rofi.sh"; }
     Mod+G hotkey-overlay-title="截图与录屏" { spawn "~/.config/hypr/scripts/capture.sh"; }
     Mod+E hotkey-overlay-title="yazi文件管理器" { spawn "alacritty" "-e" "yazi"; }
     Mod+B hotkey-overlay-title="打开谷歌浏览器" { spawn "google-chrome-stable"; }
