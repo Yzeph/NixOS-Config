@@ -30,4 +30,15 @@
 
   # 4. 辅助 GSettings 代理设置
   services.dbus.packages = [ pkgs.gcr ];
+
+  # 5. 系统级代理设置
+  # 使用 networking.proxy 会自动设置所有环境变量 (http_proxy, https_proxy, etc.)
+  # 并且对系统服务和 Nix 包管理器也生效，这是 NixOS 的标准做法。
+  networking.proxy = {
+    default = "http://127.0.0.1:7897";
+    httpProxy = "http://127.0.0.1:7897";
+    httpsProxy = "http://127.0.0.1:7897";
+    all_proxy = "socks5://127.0.0.1:7897"; # 额外添加 all_proxy 变量
+    noProxy = "localhost,127.0.0.1,::1,.local";
+  };
 }
