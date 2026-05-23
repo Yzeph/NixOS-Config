@@ -226,24 +226,11 @@
   hardware = {
     enableAllFirmware = true;         # 自动安装所有固件
     cpu.intel.updateMicrocode = true; # Intel CPU 微码更新
-    graphics = {                      # 显卡驱动配置
+    graphics = {                      # 显卡驱动配置 (AMD/Intel 通用)
       enable = true;
       enable32Bit = true;
+      # AMD 显卡通常不需要像 Intel 那样指定额外的英特尔驱动包
     };
-  };
-
-  # 显卡驱动与硬件加速 (Intel)
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      intel-vaapi-driver
-    ];
-    extraPackages32 = with pkgs.pkgsi686Linux; [
-      intel-media-driver
-      intel-vaapi-driver
-    ];
   };
 
   # NixOS 状态版本 (请勿随意修改)
