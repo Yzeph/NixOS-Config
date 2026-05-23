@@ -40,7 +40,7 @@
 ## 3. 独立系统模块 ([modules/](NixOS-Config/modules/))
 
 - **[clash.nix](NixOS-Config/modules/clash.nix)**: 
-  - 启用 `clash-verge`。
+  - 启用 `clash-verge` (目前主用) 与 `clash-nyanpasu` (待迁移)。
   - 默认配置为 **Tun 模式** 和 **服务模式** (Service Mode)，实现全局流量代理。
 - **[virtualization.nix](NixOS-Config/modules/virtualization.nix)**: 
   - **Docker**: 全面支持容器化开发。
