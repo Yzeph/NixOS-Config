@@ -87,7 +87,7 @@
 
   # 引导加载程序 (Systemd-boot)
   boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 10; # 限制启动项数量，防止 /boot 分区占满
+  boot.loader.systemd-boot.configurationLimit = 3; # 限制启动项数量，最多保留 3 个
   boot.loader.efi.canTouchEfiVariables = true;
   
   # 内核参数与内核版本
@@ -208,10 +208,12 @@
 
   # 自动清理过期的 Nix 软件包
   nix.gc = {
-    automatic = lib.mkDefault true;
-    dates = lib.mkDefault "weekly";
-    options = lib.mkDefault "--delete-older-than 7d";
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 3d"; # 清理超过 3 天的旧版本
   };
+
+  nix.settings.auto-optimise-store = true; # 自动优化存储空间 (硬链接重复文件)
 
   # 音频服务 (使用 Pipewire 替代 Pulseaudio)
   services.pulseaudio.enable = false;
