@@ -45,6 +45,7 @@
     curl
     wget
     bluez
+    glib # 提供 gsettings 命令，供 Clash 等应用设置系统代理
     cachix
     alsa-utils
     sof-firmware # 许多现代主板（如 B760）音频所需的固件
@@ -70,6 +71,7 @@
   programs.steam.fontPackages = with pkgs; [source-han-sans];
   programs.zsh.enable = true;
   programs.dconf.enable = true;
+  security.polkit.enable = true;
 
   # 启用 Flatpak
   services.flatpak.enable = true;
