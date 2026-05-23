@@ -10,13 +10,14 @@
 主要修饰键：`SUPER` ($mainMod)
 
 ### 软件启动
-- `SUPER + RETURN`: 打开默认终端
+- `SUPER + RETURN`: 打开默认终端 (Kitty)
 - `SUPER + SHIFT + RETURN`: 打开浮动终端
-- `SUPER + B`: 打开默认浏览器
+- `SUPER + B`: 打开 Google Chrome (默认)
 - `SUPER + SHIFT + B`: 打开 Firefox
-- `SUPER + M`: 打开音乐软件
-- `SUPER + D`: 打开应用菜单 (Rofi/Fuzzel)
-- `SUPER + E`: 打开终端文件管理器 (yazi/nvim)
+- `SUPER + M`: 打开 Spotify (Flatpak)
+- `SUPER + D`: 打开应用菜单 (Rofi)
+- `ALT + SPACE`: 打开 Ulauncher (快速搜索)
+- `SUPER + E`: 打开 Yazi 文件管理器 (Kitty)
 - `SUPER + N`: 打开 Neovide (GUI Neovim)
 - `SUPER + L`: 锁屏 (Hyprlock)
 
@@ -58,11 +59,15 @@
 - `Mod + RETURN`: 打开终端 (Alacritty)
 - `Mod + SHIFT + RETURN`: 打开浮动终端
 - `Mod + D`: 应用启动器 (Fuzzel)
-- `Mod + E`: Yazi 文件管理器
-- `Mod + B`: Chrome 浏览器
+- `Mod + Shift + W`: 切换壁纸
+- `Mod + G`: 打开截图/录屏菜单脚本
+- `Mod + E`: Yazi 文件管理器 (Alacritty)
+- `Mod + B`: Google Chrome 浏览器
 - `Mod + SHIFT + B`: Firefox
-- `Mod + N`: Neovim
-- `Mod + L`: 锁屏
+- `Mod + N`: Neovim (Alacritty)
+- `Mod + L`: 锁屏 (Noctalia Shell)
+- `SUPER + SHIFT + V`: 剪切板管理 (Noctalia Shell)
+- `SUPER + S`: 多功能启动器 (Noctalia Shell)
 - `Mod + Q`: 关闭当前窗口
 - `Mod + O`: 开启/关闭 全览模式 (Overview)
 - `Mod + SHIFT + /`: 显示内置快捷键帮助菜单
@@ -71,7 +76,7 @@
 - `Mod + H/J/K/L` 或 `方向键`: 移动焦点
 - `Mod + Ctrl + H/J/K/L`: 移动窗口/列
 - `Mod + SHIFT + H/J/K/L`: 切换显示器焦点
-- `Mod + U / I`: 切换工作区
+- `Mod + U / I` 或 `PageUp / PageDown`: 切换工作区
 - `Mod + Ctrl + U / I`: 将窗口移动到上一个/下一个工作区
 
 ---
@@ -90,7 +95,7 @@
 - `snv`: `sudo nvim` (以 root 权限编辑)
 - `lg`: `lazygit` (Git 图形客户端)
 - `ff`: `fastfetch` (查看系统信息)
-- `lta`: 以树形结构列出目录 (带图标)
+- `lta`: 以树形结构列出目录 (ls --tree --long --icons)
 
 ---
 
