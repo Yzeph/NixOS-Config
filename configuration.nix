@@ -11,23 +11,9 @@
   ];
 
   # Nix 设置
-  nix.settings = {
-    trusted-users = ["root" "zephyr"]; # 信任用户
-    experimental-features = ["nix-command" "flakes"]; # 启用 Flakes 特性
-
-    # 替换或添加国内镜像源作为主 Substituter
-    substituters = [
-      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-      "https://cache.nixos.org/" # 保留官方源作为保底备份
-    ];
-
-    # 对应的公钥
-    trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-    ];
-  };
-
+  nix.settings.trusted-users = ["root" "zephyr"]; # 信任用户
   nixpkgs.config.allowUnfree = true;                # 允许闭源软件
+  nix.settings.experimental-features = ["nix-command" "flakes"]; # 启用 Flakes 特性
 
   # 系统级软件包
   environment.systemPackages = with pkgs; [
@@ -198,17 +184,8 @@
   # [优化] 修正 Portal 行为，防止混合桌面环境下的调用冲突
   xdg.portal = {
     enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = [ 
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-gnome
-      pkgs.kdePackages.xdg-desktop-portal-kde
-    ];
-    config = {
-      common.default = ["gtk"];
-      hyprland.default = ["hyprland" "gtk"];
-      niri.default = ["gnome" "gtk"];
-    };
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = "*";
   };
 
   # Hyprland 窗口管理器与 UWSM 支持
