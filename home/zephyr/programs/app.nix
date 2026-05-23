@@ -17,7 +17,6 @@
     kdePackages.dolphin
     kdePackages.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugin-kvantum
-    kvantum
   ];
 
   # 谷歌浏览器设置 主题
