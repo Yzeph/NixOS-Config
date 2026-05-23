@@ -7,11 +7,14 @@ xwayland {
     // disable true
 }
 
+spawn-at-startup "dbus-update-activation-environment --all"
 spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri XDG_SESSION_DESKTOP=niri"
+spawn-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP"
 spawn-at-startup "noctalia-shell"
+spawn-at-startup "clash-verge"
 // spawn-at-startup "swww-daemon"
 spawn-sh-at-startup "~/.config/wallpaper/swww-rofi.sh"
-spawn-at-startup "fcitx5"
+spawn-at-startup "fcitx5 -d"
 // 建议：如果不需要 X11 兼容，可以暂时注释掉下面这一行排查闪退
 spawn-at-startup "xwayland-satellite"
 spawn-sh-at-startup "sh -c 'wayvnc 0.0.0.0'"

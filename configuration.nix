@@ -69,6 +69,16 @@
   programs.steam.enable = true;
   programs.steam.fontPackages = with pkgs; [source-han-sans];
   programs.zsh.enable = true;
+  programs.dconf.enable = true;
+
+  # [优化] 授予 Clash Verge TUN 模式所需的权限
+  security.polkit.enable = true;
+  security.wrappers.clash-verge = {
+    owner = "root";
+    group = "root";
+    capabilities = "cap_net_admin,cap_net_bind_service+ep";
+    source = "${pkgs.clash-verge-rev}/bin/clash-verge";
+  };
 
   # 启用 Flatpak
   services.flatpak.enable = true;
@@ -93,6 +103,11 @@
   # 内核参数与内核版本
   # 包含针对华硕 B760-G 声卡和低功耗 CPU 的修复
   boot.initrd.kernelModules = [ "amdgpu" ]; # 针对 AMD 显卡提前加载驱动
+  boot.kernelModules = [ "tun" ];           # 启用 TUN 模块
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;              # 开启 IPv4 转发
+    "net.ipv6.conf.all.forwarding" = 1;     # 开启 IPv6 转发
+  };
   boot.kernelParams = [ 
     "ahci.mobile_lpm_policy=1"
     "snd_hda_intel.model=alc1220" # 尝试使用通用 model 名
@@ -184,6 +199,13 @@
 
   # Niri 窗口管理器
   programs.niri.enable = true;
+
+  # [优化] 修正 Portal 行为，防止混合桌面环境下的调用冲突
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = "*";
+  };
 
   # Hyprland 窗口管理器与 UWSM 支持
   programs.hyprland = {

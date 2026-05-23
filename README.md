@@ -6,7 +6,7 @@
 - **桌面**: Hyprland, Niri, KDE Plasma 6
 - **内核**: `linuxPackages_latest` + ASUS B760-G 音频修复
 - **工具**: Zsh (p10k), Kitty, Neovim (Nixvim), Chrome, Firefox
-- **其它**: Agenix 密钥管理, 系统级代理
+- **其它**: 系统级代理
 
 ## 📂 结构
 - `configuration.nix`: 系统主配置

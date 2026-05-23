@@ -3,12 +3,6 @@ result
 result-*
 .rebuild-lock
 
-# 密钥与敏感文件 (Agenix 已加密的 .age 文件应保留，但排除其他可能的备份)
-*.age.bak
-*.age.old
-secrets/id_ed25519*
-secrets/identity*
-
 # 编辑器与系统临时文件
 .vscode/
 .idea/
