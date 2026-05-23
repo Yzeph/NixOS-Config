@@ -90,6 +90,7 @@
 
   # 引导加载程序 (Systemd-boot)
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10; # 限制启动项数量，防止 /boot 分区占满
   boot.loader.efi.canTouchEfiVariables = true;
   
   # 内核参数与内核版本
