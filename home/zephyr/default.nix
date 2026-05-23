@@ -91,5 +91,6 @@
   };
 
   home.stateVersion = "25.11";
+  home.backupFileExtension = "bak";
   # home.enableNixpkgsReleaseCheck = false;
 }
