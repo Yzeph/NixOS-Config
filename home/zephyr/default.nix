@@ -70,7 +70,7 @@
     "x-scheme-handler/https" = ["microsoft-edge.desktop"];
     "x-scheme-handler/about" = ["microsoft-edge.desktop"];
     "x-scheme-handler/unknown" = ["microsoft-edge.desktop"];
-    "x-scheme-handler/clash" = "clash-verge.desktop";
+    "x-scheme-handler/clash" = "clash-verge-rev.desktop";
   };
 
   # 光标配置

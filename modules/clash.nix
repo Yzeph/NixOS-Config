@@ -3,7 +3,7 @@
   
   environment.systemPackages = [ 
     pkgs-unstable.clash-nyanpasu 
-    pkgs.clash-verge
+    pkgs.clash-verge-rev
   ];
 
   # 1. 赋予核心二进制文件网络管理权限（用于 TUN 模式）
