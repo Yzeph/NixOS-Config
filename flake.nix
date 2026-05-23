@@ -1,5 +1,5 @@
 {
-  description = "Cook configuration";
+  description = "Zephyr configuration";
   nixConfig = {
     substituters = [
       "https://cache.nixos.org"
@@ -51,7 +51,7 @@
     };
   in {
     nixosConfigurations = {
-      cook = nixpkgs.lib.nixosSystem {
+      zephyr = nixpkgs.lib.nixosSystem {
         inherit system;
 
         specialArgs = {

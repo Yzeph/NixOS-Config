@@ -102,7 +102,7 @@
   services.printing.enable = true; # 开启打印
 
   # 网络配置
-  networking.hostName = "cook";
+  networking.hostName = "zephyr";
   networking.networkmanager.enable = true; # 使用 NetworkManager 管理网络
   networking.firewall.allowedTCPPorts = [
     5900

@@ -15,7 +15,7 @@
 
 ## 🛠️ 使用
 ```bash
-sudo nixos-rebuild switch --flake .#cook
+sudo nixos-rebuild switch --flake .#zephyr
 ```
 
 详细查阅：[配置说明](./CONFIG_GUIDE.md) | [快捷键](./KEYBINDINGS_GUIDE.md)

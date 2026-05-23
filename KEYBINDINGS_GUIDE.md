@@ -85,7 +85,7 @@
 这些别名在 Zsh 中全局生效，极大地简化了日常操作：
 
 ### NixOS 维护
-- `nrs`: `sudo nixos-rebuild switch --flake .#cook` (快速应用配置)
+- `nrs`: `sudo nixos-rebuild switch --flake .#zephyr` (快速应用配置)
 - `nlg`: 列出系统世代 (Generations)
 - `ncg`: 清理陈旧的软件包 (垃圾回收)
 - `nopt`: 优化 Nix 存储（硬链接去重）

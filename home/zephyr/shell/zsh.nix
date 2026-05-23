@@ -43,7 +43,7 @@
       lg = "lazygit";
       
       # NixOS 维护命令
-      nrs = "sudo nixos-rebuild switch --flake .#cook";
+      nrs = "sudo nixos-rebuild switch --flake .#zephyr";
       nlg = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
       ncg = "sudo nix-collect-garbage -d";
       nopt = "sudo nix-store --optimise"; # 优化存储（去重）

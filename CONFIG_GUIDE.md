@@ -13,14 +13,14 @@
   - `home-manager`: 管理用户级别的配置。
   - `agenix`: 处理加密秘钥。
   - `noctalia & CookNixvim`: 外部定制的桌面外壳和 Neovim 配置引入。
-- **Outputs (输出)**: 定义了名为 `cook` 的配置，包含系统模块和 `zephyr` 用户的 `home-manager` 设置。
+- **Outputs (输出)**: 定义了名为 `zephyr` 的配置，包含系统模块和 `zephyr` 用户的 `home-manager` 设置。
 
 ### [configuration.nix](NixOS-Config/configuration.nix)
 - **系统全局配置**: 
   - **用户**: 定义 `zephyr` 用户。
   - **环境变量注入**: 包含一个自定义的 `env-loader` systemd 服务，专门用于将解密后的 Agenix 敏感变量注入到 D-Bus 和 Systemd 用户环境中，解决图形界面应用（如 Rofi）读取不到 API Key 的问题。
   - **核心服务**: 启用 `OpenSSH`, `NetworkManager`, `udisks2` (自动挂载) 以及 `printing` (打印支持)。
-  - **网络**: 配置系统级代理 (127.0.0.1:7897) 和 `hostName = "cook"`。
+  - **网络**: 配置系统级代理 (127.0.0.1:7897) 和 `hostName = "zephyr"`。
   - **桌面组件**: 启用 `gdm` 登录管理器及 `Plasma 6` 的桌面服务端。
   - **注释**: 关键配置块均已添加详细的 **中文说明**，方便后续维护。
 
@@ -102,5 +102,5 @@
 
 ## 6. 日常维护
 - **更新系统**: `nix flake update`。
-- **重构应用**: `sudo nixos-rebuild switch --flake .#cook`。
+- **重构应用**: `sudo nixos-rebuild switch --flake .#zephyr`。
 - **垃圾回收**: `nix-collect-garbage -d`。
