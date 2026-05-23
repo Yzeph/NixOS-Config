@@ -47,6 +47,11 @@
       nlg = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
       ncg = "sudo nix-collect-garbage -d";
       nopt = "sudo nix-store --optimise"; # 优化存储（去重）
+
+      # 代理控制
+      proxy = "export http_proxy=http://127.0.0.1:7897 https_proxy=http://127.0.0.1:7897 all_proxy=socks5://127.0.0.1:7897 no_proxy='localhost,127.0.0.1,::1,.local'";
+      unproxy = "unset http_proxy https_proxy all_proxy";
+      proxy_status = "env | grep -E 'proxy|PROXY'";
     };
 
     # Oh My Zsh 框架

@@ -116,13 +116,13 @@
     5900
   ];
 
-  # 系统全局网络代理 (用于终端和部分应用)
-  networking.proxy = {
-    default = "http://127.0.0.1:7897";
-    httpProxy = "http://127.0.0.1:7897";
-    httpsProxy = "http://127.0.0.1:7897";
-    noProxy = "localhost,127.0.0.1,::1,*.local";
-  };
+  # 移除系统级静态代理，改用应用内代理或手动控制
+  # networking.proxy = {
+  #   default = "http://127.0.0.1:7897";
+  #   httpProxy = "http://127.0.0.1:7897";
+  #   httpsProxy = "http://127.0.0.1:7897";
+  #   noProxy = "localhost,127.0.0.1,::1,*.local";
+  # };
 
   # 禁用所有形式的休眠 (配合某些硬件休眠唤醒可能出问题)
   systemd.sleep.extraConfig = ''
