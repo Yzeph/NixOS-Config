@@ -1,18 +1,22 @@
 // "/-" comments out the following node.
 prefer-no-csd 
+
+// XWayland 兼容层设置
+// 如果不需要 X11 应用，可以取消下面的注释来彻底禁用以提高稳定性
+xwayland {
+    // disable true
+}
+
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "fcitx5"
+// 建议：如果不需要 X11 兼容，可以暂时注释掉下面这一行排查闪退
 spawn-at-startup "xwayland-satellite"
-// spawn-at-startup "noctalia-shell"
 spawn-sh-at-startup "sh -c 'wayvnc 0.0.0.0'"
 
 environment {  
     LANG "zh_CN.UTF-8"  
-    // LC_ALL "zh_CN.UTF-8"
-    DISPLAY ":0"
-    // AMD 显卡通常不需要此变量，除非遇到光标闪烁
-    // WLR_NO_HARDWARE_CURSORS "1"
+    // 移除手动 DISPLAY 设置，避免与 XWayland 冲突
 }
 
 input {

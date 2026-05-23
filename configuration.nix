@@ -53,7 +53,10 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # 强制 Electron 运行在 Wayland
     TERMINAL = "kitty";   # 默认终端
-    WLR_NO_HARDWARE_CURSORS = "1"; # 修复部分硬件下光标不可见或闪退
+    # AMD 显卡优化环境变量
+    LIBVA_DRIVER_NAME = "radeonsi";
+    VDPAU_DRIVER_NAME = "radeonsi";
+    # WLR_NO_HARDWARE_CURSORS = "1"; # AMD 通常不需要，如果光标消失则启用
     # GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";
     QT5_IM_MODULE = "fcitx";
@@ -90,7 +93,8 @@
   boot.initrd.kernelModules = [ "amdgpu" ]; # 针对 AMD 显卡提前加载驱动
   boot.kernelParams = [ 
     "ahci.mobile_lpm_policy=1"
-    "snd_hda_intel.model=alc1220_vb"
+    "snd_hda_intel.model=alc1220" # 尝试使用通用 model 名
+    "snd_intel_dspcfg.dsp_driver=1" # 强制使用 legacy HDA 驱动，修复 B760 音频不识别
   ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -215,6 +219,8 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    jack.enable = true; # 启用 JACK 支持
+    wireplumber.enable = true; # 显式启用会话管理器
   };
 
   # 硬件支持
@@ -232,6 +238,13 @@
       # AMD 显卡通常不需要像 Intel 那样指定额外的英特尔驱动包
     };
   };
+
+  # 补充音频相关固件
+  environment.systemPackages = with pkgs; [
+    sof-firmware # 许多现代主板（如 B760）音频所需的固件
+    alsa-utils
+    pavucontrol  # 图形化音频控制面板，建议用来检查是否被静音
+  ];
 
   # NixOS 状态版本 (请勿随意修改)
   system.stateVersion = "25.05";
