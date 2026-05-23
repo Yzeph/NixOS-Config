@@ -55,9 +55,9 @@
   #   flavor = "mocha";
   # };
 
-  # 设置默认浏览器环境变量为 Google Chrome (Nix) 或 Edge (Flatpak)
+  # 设置默认浏览器环境变量为 Microsoft Edge
   home.sessionVariables = {
-    BROWSER = "google-chrome";
+    BROWSER = "microsoft-edge";
   };
 
   xdg.mimeApps.enable = true;
@@ -65,11 +65,11 @@
     "image/png" = ["imv.desktop"];
     "image/jpeg" = ["imv.desktop"];
     "image/gif" = ["imv.desktop"];
-    "text/html" = ["google-chrome.desktop"];
-    "x-scheme-handler/http" = ["google-chrome.desktop"];
-    "x-scheme-handler/https" = ["google-chrome.desktop"];
-    "x-scheme-handler/about" = ["google-chrome.desktop"];
-    "x-scheme-handler/unknown" = ["google-chrome.desktop"];
+    "text/html" = ["microsoft-edge.desktop"];
+    "x-scheme-handler/http" = ["microsoft-edge.desktop"];
+    "x-scheme-handler/https" = ["microsoft-edge.desktop"];
+    "x-scheme-handler/about" = ["microsoft-edge.desktop"];
+    "x-scheme-handler/unknown" = ["microsoft-edge.desktop"];
     "x-scheme-handler/clash" = "clash-verge.desktop";
   };
 
