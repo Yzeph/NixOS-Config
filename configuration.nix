@@ -50,6 +50,8 @@
     alsa-utils
     sof-firmware # 许多现代主板（如 B760）音频所需的固件
     pavucontrol  # 图形化音频控制面板，建议用来检查是否被静音
+    gnome-control-center # GNOME 设置，部分 Wayland 环境下更好用
+    kdePackages.systemsettings # KDE 系统设置
   ];
 
   # 会话环境变量
@@ -196,8 +198,17 @@
   # [优化] 修正 Portal 行为，防止混合桌面环境下的调用冲突
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.common.default = "*";
+    xdgOpenUsePortal = true;
+    extraPortals = [ 
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.kdePackages.xdg-desktop-portal-kde
+    ];
+    config = {
+      common.default = ["gtk"];
+      hyprland.default = ["hyprland" "gtk"];
+      niri.default = ["gnome" "gtk"];
+    };
   };
 
   # Hyprland 窗口管理器与 UWSM 支持
