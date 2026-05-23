@@ -124,6 +124,14 @@
     5900
   ];
 
+  # 系统级静态代理
+  networking.proxy = {
+    default = "http://127.0.0.1:7897";
+    httpProxy = "http://127.0.0.1:7897";
+    httpsProxy = "http://127.0.0.1:7897";
+    noProxy = "localhost,127.0.0.1,::1,*.local";
+  };
+
   # 禁用所有形式的休眠 (配合某些硬件休眠唤醒可能出问题)
   systemd.sleep.extraConfig = ''
     AllowSuspend=yes         # 允许睡眠
