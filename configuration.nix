@@ -127,7 +127,7 @@
   # 时区与区域设置
   time.timeZone = "Asia/Shanghai";
   # 默认界面语言
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "zh_CN.UTF-8";
   # 具体的日期、货币、测量单位等中文本地化
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "zh_CN.UTF-8";
