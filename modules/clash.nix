@@ -11,7 +11,7 @@
     owner = "root";
     group = "root";
     capabilities = "cap_net_admin,cap_net_bind_service+ep";
-    source = "${pkgs.clash-verge-rev}/bin/clash-verge-rev";
+    source = "${pkgs.clash-verge-rev}/bin/clash-verge";
   };
 
   # 2. 启用后端服务（用于“系统代理”开关和“Service Mode”）
@@ -20,7 +20,7 @@
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.clash-verge-rev}/bin/clash-verge-rev";
+      ExecStart = "${pkgs.clash-verge-rev}/bin/clash-verge";
       Restart = "always";
     };
   };
