@@ -60,8 +60,8 @@
     VDPAU_DRIVER_NAME = "radeonsi";
     # WLR_NO_HARDWARE_CURSORS = "1"; # AMD 通常不需要，如果光标消失则启用
     # GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
-    QT5_IM_MODULE = "fcitx";
+    # QT_IM_MODULE = "fcitx";
+    # QT5_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
   };
 

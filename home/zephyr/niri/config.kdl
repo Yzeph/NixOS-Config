@@ -7,9 +7,9 @@ xwayland {
     // disable true
 }
 
-spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri XDG_SESSION_DESKTOP=niri"
 spawn-at-startup "noctalia-shell"
-spawn-at-startup "swww-daemon"
+// spawn-at-startup "swww-daemon"
 spawn-sh-at-startup "~/.config/wallpaper/swww-rofi.sh"
 spawn-at-startup "fcitx5"
 // 建议：如果不需要 X11 兼容，可以暂时注释掉下面这一行排查闪退

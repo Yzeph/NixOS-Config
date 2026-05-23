@@ -9,7 +9,10 @@ ROFI_THEME="${ROFI_THEME:-$HOME/.config/rofi/themes/wallpaper_2_line.rasi}"
 # 启动 swww 守护进程
 if ! pgrep -x "swww-daemon" >/dev/null 2>&1; then
     swww-daemon >/dev/null 2>&1 &
-    sleep 0.25
+    # 等待 socket 文件创建成功
+    while ! swww query >/dev/null 2>&1; do
+        sleep 0.1
+    done
 fi
 
 # 收集壁纸

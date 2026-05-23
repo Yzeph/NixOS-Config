@@ -11,9 +11,13 @@
   home.file.".config/wallpaper/swww-rofi.sh" = {
     text = ''
       #!/bin/sh
-      # 简单的壁纸切换逻辑示例，具体根据你的脚本内容调整
-      # 这里只是确保文件存在且可执行
-      swww img $(find ~/.config/wallpaper -type f | shuf -n 1)
+      if ! pgrep -x "swww-daemon" >/dev/null; then
+          swww-daemon &
+          while ! swww query >/dev/null 2>&1; do
+              sleep 0.1
+          done
+      fi
+      swww img $(find ~/.config/wallpaper -type f | grep -E "\.(jpg|jpeg|png|webp|gif)$" | shuf -n 1)
     '';
     executable = true;
   };
