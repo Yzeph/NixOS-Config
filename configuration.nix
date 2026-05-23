@@ -28,6 +28,10 @@
   };
 
   nixpkgs.config.allowUnfree = true;                # 允许闭源软件
+  nixpkgs.config.packageOverrides = pkgs: {
+    # 强制所有包使用同一个 gcc
+    stdenv = pkgs.stdenvAdapters.overrideCC pkgs.stdenv pkgs.gcc15;
+  };
 
   # 系统级软件包
   environment.systemPackages = with pkgs; [
