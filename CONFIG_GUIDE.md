@@ -63,7 +63,7 @@
 
 ### 软件程序 ([programs/](NixOS-Config/home/zephyr/programs/))
 - **[app.nix](NixOS-Config/home/zephyr/programs/app.nix)**: 
-  - 日常应用：WeChat, QQ, Discord, Obsidian, Spotify, VLC 等。
+  - 日常应用：WeChat, QQ, Obsidian, Spotify, VLC 等。
   - **Firefox**: 深度配置，包含中文语言包和隐私设置。
 - **[tool.nix](NixOS-Config/home/zephyr/programs/tool.nix)**: 
   - 基础设施：`eza`, `bat`, `fd`, `ripgrep`。

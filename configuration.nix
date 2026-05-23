@@ -33,7 +33,7 @@
   environment.systemPackages = with pkgs; [
     wineWow64Packages.stable
     winetricks
-    google-chrome
+    # google-chrome (已在 home-manager 中配置)
     pulseaudio
     pciutils # lspci
     ffmpeg

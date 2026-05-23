@@ -5,10 +5,7 @@
     nodejs_24
     pnpm_9
 
-    # rustup
-    rustc
-    cargo
-    rustfmt
+    rustup
 
     go
 
