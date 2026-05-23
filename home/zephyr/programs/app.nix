@@ -31,6 +31,7 @@
       "--enable-gpu-rasterization"
       "--enable-zero-copy"
       "--ignore-gpu-blocklist"
+      "--password-store=basic"
     ];
     extensions = [
       "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
