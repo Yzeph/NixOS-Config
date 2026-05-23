@@ -4,6 +4,13 @@
   lib,
   ...
 }: {
+  # 修复 gcc 版本冲突问题
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.packageOverrides = pkgs: {
+    # 强制所有包使用同一个 gcc
+    stdenv = pkgs.stdenvAdapters.overrideCC pkgs.stdenv pkgs.gcc15;
+  };
+
   imports = [
     ./shell
     ./programs

@@ -11,7 +11,6 @@
     maven
     jdk
     # C/C++ 环境
-    gcc
     gnumake
     cmake
     gdb

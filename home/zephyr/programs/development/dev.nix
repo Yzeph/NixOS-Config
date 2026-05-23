@@ -12,7 +12,6 @@
     python314
     uv
 
-    gcc15
     gdb
     pkg-config
     cmake

@@ -5,7 +5,6 @@ _: {
       name = "JetBrainsMono Nerd Font";
       size = 14;
     };
-    catppuccin.enable = true;
     extraConfig = ''
       # kitty的光标动画（默认不开启）
       # cursor_trail 3
@@ -26,4 +25,5 @@ _: {
       disable_ligature
     '';
   };
+  catppuccin.kitty.enable = true;
 }
