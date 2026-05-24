@@ -18,7 +18,7 @@
     efiSupport = true;
     device = "nodev";
     configurationLimit = 3;
-    background = ./home/zephyr/wallpaper/image/nix.png;
+    splashImage = lib.mkForce ./home/zephyr/wallpaper/image/nix.png;
     catppuccin.enable = true;
     catppuccin.flavor = "mocha";
   };
