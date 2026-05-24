@@ -20,6 +20,7 @@
     configurationLimit = 3;
     splashImage = lib.mkForce ./home/zephyr/wallpaper/image/nix.png;
     useOSProber = true;
+    default = "Windows Boot Manager";
   };
   catppuccin.grub.enable = true;
   catppuccin.grub.flavor = "mocha";
