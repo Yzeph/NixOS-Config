@@ -14,6 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 3;
   boot.loader.efi.canTouchEfiVariables = true;
+  catppuccin.bootloader.enable = true;
   boot.kernelModules = [ "tun" ];
 
   # 窗口管理器（使用 unstable 源以获得模糊支持）
