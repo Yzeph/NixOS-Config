@@ -209,6 +209,7 @@
   services.displayManager.gdm.enable = true;     # GDM 登录界面
   services.displayManager.gdm.wayland = true;
   services.gnome.gnome-keyring.enable = true;    # 密钥环
+  services.gnome.gnome-settings-daemon.enable = true; # GNOME 设置守护进程（gnome-control-center 需要）
   security.pam.services.gdm.enableGnomeKeyring = true;
 
   # X11 服务配置 (即使主用 Wayland，部分基础服务仍需开启)
