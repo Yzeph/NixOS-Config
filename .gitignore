@@ -1,0 +1,17 @@
+# Nix/NixOS 产物
+result
+result-*
+.rebuild-lock
+
+# 编辑器与系统临时文件
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# 命令行历史与缓存
+.direnv/
+.python-version
+.envrc

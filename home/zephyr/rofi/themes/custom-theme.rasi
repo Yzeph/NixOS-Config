@@ -1,0 +1,170 @@
+/**
+ * 设定颜色参数，使用@+变量名使用
+ */
+* {
+  background-color: transparent;
+
+  bg: #262626;
+  el: #171717;
+  lightel: #404040;
+  darkel: #57534e;
+  title: #ebb619;
+
+  white: #e9ecef;
+  grape: #cc5de8;
+  darkgrape: #ae3ec9;
+  lightgrape: #e599f7;
+  gray: #adb5db;
+  trangray: rgba(173, 181, 219, 0.69);
+  lightgray: #ced4da;
+  darkgray: #191b1e;
+  pink: #e64980;
+  lightpink: #f06595;
+  teal: #12b886;
+  lightteal: #20c997;
+  grayblue: #546e7a;
+  darkblue: #064554;
+  lightviolet: #673fe6;
+  orange: #ff922b;
+
+  transparent: rgba(0, 0, 0, 0);
+  translucent: rgba(0, 0, 0, 0.7);
+  whitetranslucent: rgba(255, 255, 255, 0.2);
+
+  base-bg: rgba(30, 30, 46, 0.85);
+  selected-bg: #6c7086;
+
+  background-color: transparent;
+  text-color: #cdd6f4;
+}
+
+window {
+  background-color: @base-bg;
+  transparency: "real";
+  border: 2px;
+  border-radius: 1.2em;
+  border-color: #f4b8e4;
+  location: center;
+  y-offset: -25;
+  children: [mainbox];
+}
+
+mainbox {
+  padding: 1.2em;
+  spacing: 0.6em;
+  children: [inputbar, listbox];
+}
+
+inputbar {
+  spacing: 0em;
+  margin: 1em 4em;
+  border-radius: 0.8em;
+  border: 2px;
+  border-color: @lightteal;
+  children: [textbox-prompt-colon, entry];
+}
+
+textbox-prompt-colon {
+  enabled: true;
+  expand: false;
+  str: "";
+  font: "FiraCode Nerd Font Mono 20";
+  padding: 0.01em 1em;
+  text-color: @teal;
+}
+
+entry {
+  cursor-color: @white;
+  placeholder: "Search";
+  placeholder-color: @lightteal;
+  text-color: @teal;
+  vertical-align: 0.5;
+  font: "FiraCode Nerd Font Mono 12";
+}
+
+listbox {
+  padding: 1em 0em;
+  orientation: horizontal;
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+  background-color: @transparency;
+  children: [mode-switcher, listview];
+}
+
+listview {
+  padding: 0.6em;
+  spacing: 0.5em;
+  lines: 4;
+  columns: 2;
+  children: [element];
+  background-color: transparent;
+}
+
+element {
+  children: [element-icon, element-text];
+  spacing: 0.1em;
+  orientation: horizontal;
+  cursor: pointer;
+  padding: 0.5em;
+  border-radius: 100%;
+}
+
+element-text {
+  font: inherit;
+  text-color: @lightgray;
+  vertical-align: 0.5;
+  background-color: inherit;
+}
+
+element-icon {
+  size: 1em;
+  background-color: inherit;
+}
+
+mode-switcher {
+  enabled: true;
+  width: 4em;
+  padding: 0.6em;
+  spacing: 0.5em;
+  orientation: vertical;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 1em;
+  text-color: @gray;
+  background-color: @whitetranslucent;
+  font: "FiraCode Nerd Font Mono 22";
+}
+
+button selected {
+  background-color: @trangray;
+  text-color: @lightteal;
+}
+
+element normal active {
+  text-color: @teal;
+}
+
+element normal urgent {
+  text-color: @grayblue;
+}
+
+element selected normal {
+  background-color: @grayblue;
+}
+
+element selected active {
+  background-color: @darkblue;
+}
+
+element selected urgent {
+  background-color: red;
+}
+
+error-message {
+  background-color: @white;
+  padding: 0.5em;
+  border-radius: 1em;
+  font: "Hack Nerd Font Mono 18";
+}
