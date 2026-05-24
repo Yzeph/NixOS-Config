@@ -61,7 +61,7 @@
     name = "catppuccin-mocha-mauve-standard+default";
     package = pkgs.catppuccin-gtk;
   };
-  gtk.iconTheme = {
+  gtk.iconTheme = lib.mkForce {
     name = "Papirus-Dark";
     package = pkgs.papirus-icon-theme;
   };
