@@ -182,10 +182,21 @@
   programs.niri.enable = true;
 
   # [优化] 修正 Portal 行为，防止混合桌面环境下的调用冲突
+  # 为每个桌面环境配置独立的 portal 后端，确保 gnome-control-center 和
+  # systemsettings 在 niri/Hyprland 下能正常打开
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.common.default = "*";
+    xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
+    ];
+    config = {
+      common.default = [ "gtk" ];
+      niri.default = [ "gnome" "gtk" ];
+      hyprland.default = [ "hyprland" "gnome" "gtk" ];
+      plasma.default = [ "kde" "gtk" ];
+    };
   };
 
   # Hyprland 窗口管理器与 UWSM 支持
