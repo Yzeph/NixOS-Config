@@ -96,6 +96,12 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
+  # Electron 兼容（Wayland + 输入法）
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
+  programs.dconf.enable = true;
+
   # 自动清理
   nix.gc = {
     automatic = true;
