@@ -36,7 +36,8 @@
     alsa-utils
     sof-firmware # 许多现代主板（如 B760）音频所需的固件
     pavucontrol  # 图形化音频控制面板，建议用来检查是否被静音
-    gnome-control-center # GNOME 设置
+    gnome-disk-utility # 磁盘管理（独立运行，不依赖 GNOME 会话）
+    wdisplays          # 显示器布局配置
   ];
 
   # 会话环境变量
@@ -181,18 +182,15 @@
   programs.niri.enable = true;
 
   # [优化] 修正 Portal 行为，防止混合桌面环境下的调用冲突
-  # (KDE portal 由 services.desktopManager.plasma6.enable 自动处理)
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-gnome
     ];
     config = {
       common.default = [ "gtk" ];
-      niri.default = [ "gnome" "gtk" ];
-      hyprland.default = [ "hyprland" "gnome" "gtk" ];
+      hyprland.default = [ "hyprland" "gtk" ];
       plasma.default = [ "kde" "gtk" ];
     };
   };
@@ -209,7 +207,6 @@
   services.displayManager.gdm.enable = true;     # GDM 登录界面
   services.displayManager.gdm.wayland = true;
   services.gnome.gnome-keyring.enable = true;    # 密钥环
-  services.gnome.gnome-settings-daemon.enable = true; # GNOME 设置守护进程（gnome-control-center 需要）
   security.pam.services.gdm.enableGnomeKeyring = true;
 
   # X11 服务配置 (即使主用 Wayland，部分基础服务仍需开启)
