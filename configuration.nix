@@ -10,11 +10,18 @@
     ./modules
   ];
 
-  # 引导加载
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 3;
-  boot.loader.systemd-boot.consoleMode = "max";
+  # 引导加载 — GRUB（支持图片背景和 Catppuccin 主题）
+  boot.loader.systemd-boot.enable = false;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub = {
+    enable = true;
+    efiSupport = true;
+    device = "nodev";
+    configurationLimit = 3;
+    background = ./home/zephyr/wallpaper/image/nix.png;
+    catppuccin.enable = true;
+    catppuccin.flavor = "mocha";
+  };
 
   # 开机动画（Catppuccin 主题）
   boot.plymouth.enable = true;
