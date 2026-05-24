@@ -37,7 +37,6 @@
     sof-firmware # 许多现代主板（如 B760）音频所需的固件
     pavucontrol  # 图形化音频控制面板，建议用来检查是否被静音
     gnome-control-center # GNOME 设置
-    kdePackages.systemsettings # KDE 系统设置
   ];
 
   # 会话环境变量
@@ -182,15 +181,13 @@
   programs.niri.enable = true;
 
   # [优化] 修正 Portal 行为，防止混合桌面环境下的调用冲突
-  # 为每个桌面环境配置独立的 portal 后端，确保 gnome-control-center 和
-  # systemsettings 在 niri/Hyprland 下能正常打开
+  # (KDE portal 由 services.desktopManager.plasma6.enable 自动处理)
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
       xdg-desktop-portal-gnome
-      kdePackages.xdg-desktop-portal-kde
     ];
     config = {
       common.default = [ "gtk" ];
