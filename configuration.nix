@@ -19,10 +19,10 @@
     device = "nodev";
     configurationLimit = 3;
     splashImage = lib.mkForce ./home/zephyr/wallpaper/image/nix.png;
-    catppuccin.grub.enable = true;
-    catppuccin.grub.flavor = "mocha";
     useOSProber = true;
   };
+  catppuccin.grub.enable = true;
+  catppuccin.grub.flavor = "mocha";
 
   # 开机动画（Catppuccin 主题）
   boot.plymouth.enable = true;
