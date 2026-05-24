@@ -21,6 +21,10 @@
     libnotify
     grim                    # 截图
     slurp                   # 区域选择
+    gtk-engine-murrine      # GTK 主题引擎
+    catppuccin-gtk          # Catppuccin GTK 主题
+    catppuccin-cursors      # Catppuccin 鼠标指针
+    papirus-icon-theme      # Papirus 图标主题
   ];
 
   # 截图脚本
@@ -53,6 +57,16 @@
 
   # GTK/Qt 主题
   gtk.enable = true;
+  gtk.theme = {
+    name = "catppuccin-mocha-mauve-standard+default";
+    package = pkgs.catppuccin-gtk;
+  };
+  gtk.iconTheme = {
+    name = "Papirus-Dark";
+    package = pkgs.papirus-icon-theme;
+  };
+  catppuccin.cursors.enable = true;
+
   qt = {
     enable = true;
     platformTheme.name = "gtk";
