@@ -21,6 +21,7 @@
     splashImage = lib.mkForce ./home/zephyr/wallpaper/image/nix.png;
     catppuccin.enable = true;
     catppuccin.flavor = "mocha";
+    useOSProber = true;
   };
 
   # 开机动画（Catppuccin 主题）
