@@ -1,6 +1,5 @@
-{ pkgs, pkgs-unstable, ... }: {
+{ pkgs, ... }: {
   environment.systemPackages = [
-    pkgs-unstable.clash-nyanpasu
     pkgs.clash-verge-rev
   ];
 

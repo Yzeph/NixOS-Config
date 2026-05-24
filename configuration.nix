@@ -99,6 +99,10 @@
   # Electron 兼容（Wayland + 输入法）
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    http_proxy = "http://127.0.0.1:7897";
+    https_proxy = "http://127.0.0.1:7897";
+    HTTP_PROXY = "http://127.0.0.1:7897";
+    HTTPS_PROXY = "http://127.0.0.1:7897";
   };
   programs.dconf.enable = true;
 
