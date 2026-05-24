@@ -1,12 +1,6 @@
 // "/-" comments out the following node.
 prefer-no-csd 
 
-// XWayland 兼容层设置
-// 如果不需要 X11 应用，可以取消下面的注释来彻底禁用以提高稳定性
-xwayland {
-    // disable true
-}
-
 spawn-at-startup "dbus-update-activation-environment --all"
 spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri XDG_SESSION_DESKTOP=niri"
 spawn-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP"
