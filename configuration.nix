@@ -190,7 +190,7 @@
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
       xdg-desktop-portal-gnome
-      xdg-desktop-portal-kde
+      kdePackages.xdg-desktop-portal-kde
     ];
     config = {
       common.default = [ "gtk" ];
