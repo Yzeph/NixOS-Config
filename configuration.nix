@@ -19,8 +19,16 @@
     device = "nodev";
     configurationLimit = 3;
     splashImage = lib.mkForce ./home/zephyr/wallpaper/image/nix.png;
-    useOSProber = true;
-    default = "Windows Boot Manager (on /dev/nvme0n1p1)";
+    useOSProber = false;
+    default = "Windows11";
+    extraEntries = ''
+      menuentry "Windows11" {
+        insmod part_gpt
+        insmod fat
+        search --fs-uuid --no-floppy --set=root 9EAB-E9A6
+        chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+      }
+    '';
   };
   catppuccin.grub.enable = true;
   catppuccin.grub.flavor = "mocha";
