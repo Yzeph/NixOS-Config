@@ -20,7 +20,7 @@
     configurationLimit = 3;
     splashImage = lib.mkForce ./home/zephyr/wallpaper/image/nix.png;
     useOSProber = true;
-    default = "Windows Boot Manager (on /dev/nvme1n1p1)";
+    default = "Windows Boot Manager (on /dev/nvme0n1p1)";
   };
   catppuccin.grub.enable = true;
   catppuccin.grub.flavor = "mocha";
