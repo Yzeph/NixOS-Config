@@ -19,8 +19,8 @@
     device = "nodev";
     configurationLimit = 3;
     splashImage = lib.mkForce ./home/zephyr/wallpaper/image/nix.png;
-    catppuccin.enable = true;
-    catppuccin.flavor = "mocha";
+    catppuccin.grub.enable = true;
+    catppuccin.grub.flavor = "mocha";
     useOSProber = true;
   };
 
