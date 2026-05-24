@@ -13,21 +13,12 @@
   # 引导加载
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 3;
-  boot.loader.efi.canTouchEfiVariables = true;
-  # 系统引导主题（Catppuccin Mocha）
-  boot.loader.systemd-boot.extraFiles = let
-    theme = (builtins.fetchTarball {
-      url = "https://github.com/catppuccin/systemd-boot/archive/main.tar.gz";
-    }).outPath + "/catppuccin-mocha";
-  in {
-    "loader/themes/catppuccin-mocha/theme.conf" = "${theme}/theme.conf";
-    "loader/themes/catppuccin-mocha/splash.png" = "${theme}/splash.png";
-  };
   boot.loader.systemd-boot.consoleMode = "max";
-  boot.loader.systemd-boot.extraInstallCommands = ''
-    grep -qxF "theme catppuccin-mocha" /boot/loader/loader.conf || \
-      echo "theme catppuccin-mocha" >> /boot/loader/loader.conf
-  '';
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # 开机动画（Catppuccin 主题）
+  boot.plymouth.enable = true;
+  catppuccin.plymouth.enable = true;
   boot.kernelModules = [ "tun" ];
 
   # 窗口管理器（使用 unstable 源以获得模糊支持）
