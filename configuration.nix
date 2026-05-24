@@ -157,6 +157,17 @@
     git
   ];
 
+  # 关闭 HDA Intel PCH Auto-Mute（避免每次开机手动改 alsamixer）
+  systemd.services.disable-hda-auto-mute = {
+    description = "Disable HDA Intel PCH Auto-Mute Mode";
+    after = [ "sound.target" ];
+    wants = [ "sound.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig.Type = "oneshot";
+    serviceConfig.RemainAfterExit = true;
+    serviceConfig.ExecStart = "${pkgs.alsa-utils}/bin/amixer -c PCH set 'Auto-Mute Mode' Disabled";
+  };
+
   # 电源管理
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
