@@ -127,6 +127,12 @@
   services.displayManager.gdm.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
+  # AMD 显卡驱动
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   # XWayland
   programs.xwayland.enable = true;
   programs.zsh.enable = true;
