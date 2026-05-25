@@ -181,6 +181,17 @@
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
 
+  # 禁用所有形式的休眠（配合某些硬件休眠唤醒可能出问题）
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=yes
+    AllowHibernation=no
+    AllowHybridSleep=no
+    AllowSuspendThenHibernate=no
+  '';
+
+  # U盘自动挂载
+  services.udisks2.enable = true;
+
   # 蓝牙
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
