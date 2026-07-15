@@ -1,0 +1,14 @@
+result/
+*.drv
+nix-shell-*.tmp
+
+.git/
+flake.lock
+
+*.swp
+*~
+
+# 系统缓存
+tmp/
+*.tmp
+.DS_Store

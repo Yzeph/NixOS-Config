@@ -51,6 +51,8 @@
     pulse.enable = true;
   };
 
+  programs.zsh.enable = true; 
+  
   # Define a user account.
   users.users.zephyr = {
     isNormalUser = true;
