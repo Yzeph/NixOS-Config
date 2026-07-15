@@ -14,7 +14,6 @@
     zoxide    
     eza       
     firefox   
-    vscode 
     clash-verge-rev   
   ];
 }

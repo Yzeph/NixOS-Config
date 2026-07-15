@@ -7,6 +7,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./home-manager
     ./system
     ./apps
   ];
@@ -21,6 +22,8 @@
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true; # Enable networking
   nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" "https://cache.nixos.org" ];
+
+ nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -52,6 +55,7 @@
   users.users.zephyr = {
     isNormalUser = true;
     description = "Zephyr";
+    shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
