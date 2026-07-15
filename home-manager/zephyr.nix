@@ -13,8 +13,10 @@
   # Git 配置
   programs.git = {
     enable = true;
-    userName = "Zephyr";
-    userEmail = "yanrui060127@outlook.com";
+    settings.user = {
+      userName = "Zephyr";
+      userEmail = "yanrui060127@outlook.com";
+    };
   };
 
   # Zsh 配置
