@@ -13,11 +13,10 @@
     vscode 
     # 编译核心
     gcc
-    gdb gdb-multiarch
+    gdb
     cmake
     # 静态检查、语法提示
     clang-tools
-    clangd
     # 绘图/可视化
     graphviz
     plantuml
