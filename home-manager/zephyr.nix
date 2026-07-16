@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./vscode.nix
+  ];
   home.username = "zephyr";
   home.homeDirectory = "/home/zephyr";
   home.stateVersion = "25.11";
@@ -8,6 +11,24 @@
   # 安装用户级软件包
   home.packages = with pkgs; [
     vscode 
+    # 编译核心
+    gcc
+    gdb gdb-multiarch
+    cmake
+    # 静态检查、语法提示
+    clang-tools
+    clangd
+    # 绘图/可视化
+    graphviz
+    plantuml
+    # PDF阅读
+    zathura
+    # 内存检测
+    valgrind
+    # C++ 静态分析
+    cppcheck  
+    # Google C++ 风格检查         
+    cpplint
   ];
 
   # Git 配置
