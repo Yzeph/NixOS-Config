@@ -10,10 +10,10 @@
     wget
     curl
     fastfetch 
-    htop      
+    btop      
     zoxide    
     eza       
-    firefox   
+    microsoft-edge
     clash-verge-rev   
   ];
 }
