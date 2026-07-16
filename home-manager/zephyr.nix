@@ -50,8 +50,8 @@
       ll  = "ls -l";
       la  = "ls -la";
       lt  = "ls -lart";
-      rebuild = "sudo nixos-rebuild switch --flake .#nixos";
-      update  = "sudo nix flake update";
+      rebuild = "cd /home/zephyr/nix-config && sudo nixos-rebuild switch --flake .#nixos";
+      update  = "cd /home/zephyr/nix-config && sudo nix flake update";
       gc      = "sudo nix-collect-garbage --delete-older-than 7d";
     };
     oh-my-zsh = {
