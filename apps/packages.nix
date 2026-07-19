@@ -6,13 +6,16 @@
   # 全局系统软件包管理列表
   environment.systemPackages = with pkgs; [
     vim
+    neovim
     git
+    lazygit
     wget
     curl
     fastfetch 
     btop      
     zoxide    
-    eza       
+    eza
+    bat
     microsoft-edge
     clash-verge-rev   
   ];
