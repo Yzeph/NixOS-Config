@@ -5,6 +5,7 @@
 
   # 全局系统软件包管理列表
   environment.systemPackages = with pkgs; [
+    kitty
     vim
     neovim
     git

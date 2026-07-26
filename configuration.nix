@@ -12,6 +12,11 @@
     ./apps
   ];
 
+  #启动指纹模块
+  services.fprintd.enable = true;
+  security.pam.services = {
+    sudo.fprintAuth = true;
+    };
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
