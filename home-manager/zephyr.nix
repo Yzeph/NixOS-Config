@@ -49,8 +49,8 @@
       ll  = "ls -l";
       la  = "ls -la";
       lt  = "ls -lart";
-      rebuild = "cd /home/zephyr/nixos-config && sudo nixos-rebuild switch --flake .#nixos";
-      update  = "cd /home/zephyr/nixos-config && sudo nix flake update";
+      rebuild = "cd /etc/nixos && sudo nixos-rebuild switch --flake .#nixos";
+      update  = "cd /etc/nixos && sudo nix flake update";
       gc      = "sudo nix-collect-garbage --delete-older-than 7d";
     };
     oh-my-zsh = {
