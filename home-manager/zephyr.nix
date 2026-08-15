@@ -63,12 +63,16 @@
         "web-search"
       ];
     };
+    initContent = ''
+      export PATH="$HOME/.local/bin:$PATH"
+      [ -f ~/.deepseek-claude/env ] && source ~/.deepseek-claude/env
+     '';
   };
 
   # 让 home-manager 管理会话变量
   home.sessionVariables = {
     EDITOR = "vim";
-  };
+    };
 
   programs.home-manager.enable = true;
 }

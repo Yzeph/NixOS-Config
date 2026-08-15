@@ -12,3 +12,5 @@ flake.lock
 tmp/
 *.tmp
 .DS_Store
+
+hardware-configuration.nix

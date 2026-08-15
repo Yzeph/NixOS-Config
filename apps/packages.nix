@@ -19,5 +19,9 @@
     bat
     microsoft-edge
     clash-verge-rev   
-  ];
+    nodejs
+    steam-run
+    appimage-run
+    go
+ ];
 }
